@@ -11,7 +11,7 @@ export function run() {
         const now = DateTime.now();
 
         // check last run
-        const lastRunStr: string = null;//db.getData("/lastRun");
+        const lastRunStr: string = db.getData("/lastRun");
         const lastRun = (lastRunStr !== null) ? DateTime.fromISO(lastRunStr) : null;
         let doWePerform = (() => {
             if (lastRun === null) {
