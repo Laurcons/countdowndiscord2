@@ -5,8 +5,9 @@
   "main": "index.ts",
   "scripts": {
     "run": "ts-node index.ts",
-    "build": "echo Not implemented",
-    "start": "nodemon "
+    "build": "tsc",
+    "watch": "nodemon",
+    "start": "node build/index.js"
   },
   "author": "",
   "license": "ISC",
