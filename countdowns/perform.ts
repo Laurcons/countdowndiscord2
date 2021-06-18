@@ -147,7 +147,7 @@ function sendEmbeds(channel: ChannelData, embeds: EmbedData[]) {
         }).then(() => {
             console.log("Posted embed group", JSON.stringify(embeds));
         }).catch(reason => {
-            console.error("POST error");
+            console.log("POST error", JSON.stringify(reason));
             // console.error(reason.response);
         });
     });
