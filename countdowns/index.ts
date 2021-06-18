@@ -13,7 +13,6 @@ export function run() {
         // check last run
         const lastRunStr: string = null;//db.getData("/lastRun");
         const lastRun = (lastRunStr !== null) ? DateTime.fromISO(lastRunStr) : null;
-        console.log("[SCHED] Checking time", now.toISO());
         let doWePerform = (() => {
             if (lastRun === null) {
                 console.log("[SCHED] Performing, since lastRun is null");
@@ -43,7 +42,6 @@ export function run() {
         }
     }
 
-    checkForTime();
-    // setInterval(checkForTime, 1000 * 10);
+    setInterval(checkForTime, 1000 * parseFloat(process.env.RUN_EVERY_SECONDS ?? "10"));
 
 }
