@@ -37,7 +37,7 @@ export function run() {
         if (doWePerform) {
             // write last run date
             db.push("/lastRun", now.toISO());
-            console.log("[SCHED] Performing");
+            console.log("[SCHED] Performing at", now.toISO());
             perform();
         }
     }
