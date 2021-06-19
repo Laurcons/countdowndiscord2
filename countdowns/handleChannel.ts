@@ -50,7 +50,9 @@ function processNormalCountdowns(element: NormalCountdownElementData): EmbedData
 
 function processEmojiDay(element: EmojiDayElementData): EmbedData {
     const date = DateTime.fromISO(element.date);
-    const dateStr = date.toLocaleString(DateTime.DATETIME_FULL);
+    const timeZone = date.offsetNameShort;
+    console.log(timeZone);
+    const dateStr = date.setZone(timeZone).toLocaleString(DateTime.DATETIME_MED_WITH_WEEKDAY);
     const diff = date.diffNow();
     const isPassed = diff.as('days') < 1;
     return {
@@ -61,7 +63,8 @@ function processEmojiDay(element: EmojiDayElementData): EmbedData {
                 .map(() => element.emoji).join(" ")
             : "Trecut!"),
         color: element.color,
-        thumbnail: element.thumbnail
+        thumbnail: element.thumbnail,
+        timestamp: DateTime.now().toISO()
     };
 }
 

@@ -1,7 +1,7 @@
 
 import perform from "./perform";
 import db from "../database";
-import { DateTime } from "luxon";
+import { DateTime, Settings } from "luxon";
 
 // bootstrap the scheduling
 export function run() {
@@ -9,6 +9,8 @@ export function run() {
     // default config values
     process.env.RUN_EVERY_SECONDS = process.env.RUN_EVERY_SECONDS ?? "10";
     process.env.TIME_ZONE = process.env.TIME_ZONE ?? "Europe/Bucharest";
+    Settings.defaultLocale = "ro-RO";
+    Settings.defaultZoneName = process.env.TIME_ZONE;
 
     function checkForTime() {
         const now = DateTime.now().setZone(process.env.TIME_ZONE);
