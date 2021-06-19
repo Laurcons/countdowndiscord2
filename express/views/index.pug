@@ -1,0 +1,17 @@
+extends layout.pug
+
+block head
+	title CountdownDiscord 2
+
+block content
+	h1 Countdown Discord 
+		small.text-muted v2
+	p Welcome to the web interface for CountdownDiscord v2!
+	p You can view and edit your webhook by pasting it into the box below.
+	p You can also create and configure your webhook if it doesn't exist.
+	a(href="/reference") View reference and help
+	form#webhookForm(style={"max-width": "400px"}, action="/")
+		div.mb-2
+			label Webhook URL
+			input.form-control(name="webhookUrl")
+		button.btn.btn-primary(type="submit") Open Webhook

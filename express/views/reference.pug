@@ -1,0 +1,111 @@
+extends layout.pug
+
+block head
+	title Reference - CountdownDiscord 2
+	link(rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/styles/default.min.css")
+	style.
+		p {
+			margin-left: 5px;
+		}
+
+block content
+	h1 Reference
+	p Use this page to learn how to make countdowns for your server.
+	h2 How it works
+	p You add a set of countdowns for your server. Then, everyday at 14:30 PM Romania time (GMT+2), the bot will send a reminder.
+	h2 Obtaining the Webhook URL
+	p The Webhook URL is a link provided by Discord. You need to have sufficient permissions to be able to create webhook integrations.
+	ol
+		li Go into the settings of the channel you want to add a Webhook to.
+		li Select Integrations.
+		li From Webhooks, select Create Webhook.
+		li From the newly created Webhook, select a name for it, a picture (you can change them later).
+		li Click Copy Webhook URL.
+	h2 Webhook Metadata
+	p This is just some information that is stored along the webhook URL.
+	dl
+		dt Name
+		dd A name for the webhook, that currently only appears in logs. Mostly useless but to give it some meaningful name.
+	h2 Webhook Elements
+	p These are the core of the bot. Each webhook URL has attached a number of "elements", which get processed and translated into Discord embeds,
+		|  which get sent directly to Discord.
+	p There isn't a hard limit, but any more than 40 elements will probably cause you to hit Discord's ratelimit.
+	p Each element has a type:
+		dl
+			dt
+				code normalCountdowns
+			dd A normal set of countdowns. This contains an embed with a set of events, and displays the remaining time until the events.
+			dt
+				code emojiDay
+			dd An emoji representation of "how many days until".
+			dt
+				code message
+			dd Displays a static message.
+	
+	h3 General element structure
+	p Any element must contain the properties:
+		dl
+			dt
+				code type
+			dd The type of the element, from the list above.
+			dt
+				code color
+			dd
+				| The embed's color: an integer (hexadecimal is not allowed). Google "color picker", take the hex code, then convert it to decimal.
+				br
+				strong This property is ignored for <code>message</code> elements!
+			dt
+				code thumbnail
+			dd A Discord-compatible thumbnail object. It contains a property named <code>url</code> with the URL of the thumbnail.
+				a(href='https://discord.com/developers/docs/resources/channel#embed-object-embed-thumbnail-structure' target="_blank")
+					|  Read more on Discord's docs
+				br
+				strong This property is ignored for <code>message</code> elements!
+	
+	h3 normalCountdowns
+	p This object contains the following properties:
+		dl
+			dt
+				code countdowns
+			dd An array of countdowns.
+	p Each countdown in the list is an object containing the following properties:
+		dl
+			dt 
+				code name
+			dd The displayed name of the countdown.
+			dt
+				code date
+			dd An ISO 8601 formatted date string.
+			dt
+				code appendWeeks [optional]
+			dd A boolean that indicates whether to append the number of weeks to the number of days.
+	
+	h3 emojiDay
+	p This object contains the following properties:
+		dl
+			dt
+				code name
+			dd The displayed name of the countdown.
+			dt 
+				code emoji
+			dd The emoji to display.
+			dt 
+				code date
+			dd An ISO 8601 formatted date string.
+	
+	h3 message
+	p This object contains the following properties:
+		dl
+			dt
+				code embed
+			dd A Discord-compatible embed.
+				a(href="https://discord.com/developers/docs/resources/channel#embed-object-embed-structure")  Read more here
+
+	h2 JSON Example
+	pre
+		code= jsonExample
+
+block footer
+	script(src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.0.1/highlight.min.js")
+	script.
+		hljs.highlightAll();
