@@ -26,6 +26,7 @@ function processNormalCountdowns(element: NormalCountdownElementData): EmbedData
         title: "Cât mai avem până la:",
         color: element.color,
         thumbnail: element.thumbnail,
+        timestamp: DateTime.now().toISO(),
         fields: element.countdowns?.map(countdown => {
             const diff = DateTime.fromISO(countdown.date).diffNow();
             let text = "";
