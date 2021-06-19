@@ -8,9 +8,9 @@
     "build": "tsc",
     "watch": "nodemon",
     "start": "node build/index.js",
-    "update": "git pull && npm run build"
+    "update": "git pull && npm install && npm run build"
   },
-  "author": "",
+  "author": "Laurcons",
   "license": "ISC",
   "dependencies": {
     "@types/axios": "^0.14.0",
@@ -30,8 +30,7 @@
     "node-json-db": "^1.3.0",
     "node-schedule": "^2.0.0",
     "pug": "^3.0.2",
-    "typescript": "^4.3.4",
-    "uuid": "^8.3.2"
+    "typescript": "^4.3.4"
   },
   "devDependencies": {
     "nodemon": "^2.0.7",
