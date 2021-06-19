@@ -7,6 +7,7 @@ import { createNewChannel, getExampleElements } from "../countdowns/create";
 
 const router = express.Router();
 
+router.use("/static", express.static("./express/static"));
 
 router.get("/", (req, res) => {
     if (req.query.webhookUrl) {

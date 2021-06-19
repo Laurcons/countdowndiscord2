@@ -9,8 +9,8 @@ block content
 	p Welcome to the web interface for CountdownDiscord v2!
 	p You can view and edit your webhook by pasting it into the box below.
 	p You can also create and configure your webhook if it doesn't exist.
-	a(href="/reference") View reference and help
-	form#webhookForm(style={"max-width": "400px"}, action="/")
+	a(href=homepage + "/reference") View reference and help
+	form#webhookForm(style={"max-width": "400px"}, action=homepage + "/")
 		div.mb-2
 			label Webhook URL
 			input.form-control(name="webhookUrl")

@@ -24,7 +24,7 @@ $("#saveMetaBtn").click(function(ev) {
     let $btn = $(this);
     $btn.append("<span class='spinner-border spinner-border-sm ms-2'></span>");
     $.ajax({
-        url: "/saveMeta?webhookUrl=" + webhookUrl,
+        url: "saveMeta?webhookUrl=" + webhookUrl,
         method: "post",
         contentType: "application/json",
         dataType: "json",
@@ -42,7 +42,7 @@ $("#saveElementsBtn").click(function(ev) {
     let $btn = $(this);
     $btn.append("<span class='spinner-border spinner-border-sm ms-2'></span>");
     $.ajax({
-        url: "/saveElements?webhookUrl=" + webhookUrl,
+        url: "saveElements?webhookUrl=" + webhookUrl,
         method: "post",
         contentType: "application/json",
         dataType: "json",
@@ -60,7 +60,7 @@ $("#testBtn").click(function(ev) {
     let $btn = $(this);
     $btn.append("<span class='spinner-border spinner-border-sm ms-2'></span>");
     $.ajax({
-        url: "/test?webhookUrl=" + webhookUrl,
+        url: "test?webhookUrl=" + webhookUrl,
         method: "post",
         contentType: "application/json",
         dataType: "json",
