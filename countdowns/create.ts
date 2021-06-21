@@ -44,7 +44,7 @@ export function getExampleElements(): any {
             "name": "Amogus 2 Release Date",
             "emoji": ":japanese_goblin:",
             "emojiComment": "it can be any string, really",
-            "date": "2022-01-01T00:00:00"
+            "date": "2021-08-01T00:00:00"
         }
     ];
 }
