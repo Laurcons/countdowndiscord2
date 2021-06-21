@@ -50,9 +50,7 @@ function processNormalCountdowns(element: NormalCountdownElementData): EmbedData
 
 function processEmojiDay(element: EmojiDayElementData): EmbedData {
     const date = DateTime.fromISO(element.date);
-    const timeZone = date.offsetNameShort;
-    console.log(timeZone);
-    const dateStr = date.setZone(timeZone).toLocaleString(DateTime.DATETIME_MED_WITH_WEEKDAY);
+    const dateStr = date.toLocaleString(DateTime.DATETIME_MED_WITH_WEEKDAY);
     const diff = date.diffNow();
     const isPassed = diff.as('days') < 1;
     return {
