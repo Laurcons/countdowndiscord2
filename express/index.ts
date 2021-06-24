@@ -1,6 +1,7 @@
 
 import express from "express";
 import bodyParser from "body-parser";
+import minify from "express-minify";
 import { MainRouter } from "./routes";
 
 export function run() {
@@ -17,6 +18,7 @@ export function run() {
 
 	app.set("view engine", "pug");
 	app.set("views", "./express/views");
+	app.use(minify());
 	app.use(bodyParser.json());
 
 	app.locals.homepage = process.env.EXPRESS_ROOT;
