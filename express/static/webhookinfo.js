@@ -75,6 +75,8 @@ $("#testBtn").click(function(ev) {
 });
 
 $("#deleteBtn").click(function(ev) {
+    if (!confirm("Are you sure you want to delete this webhook?"))
+        return;
     let $btn = $(this);
     $btn.append("<span class='spinner-border spinner-border-sm ms-2'></span>");
     $.ajax({
