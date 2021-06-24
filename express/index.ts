@@ -2,6 +2,7 @@
 import express from "express";
 import bodyParser from "body-parser";
 import minify from "express-minify";
+import md5file from "md5-file";
 import { MainRouter } from "./routes";
 
 export function run() {
@@ -21,7 +22,10 @@ export function run() {
 	app.use(minify());
 	app.use(bodyParser.json());
 
-	app.locals.homepage = process.env.EXPRESS_ROOT;
+	app.locals.resource = function(url: string) {
+		// append the URL to the EXPRESS_ROOT, and add a hash
+		return process.env.EXPRESS_ROOT + "/static/" + url + `?v=${md5file.sync("./express/static/" + url)}`;
+	};
 
 	app.use(process.env.EXPRESS_ROOT, MainRouter);
 

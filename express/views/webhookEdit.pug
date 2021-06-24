@@ -38,4 +38,4 @@ block footer
 	script(src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/theme-monokai.min.js" integrity="sha512-S4i/WUGRs22+8rjUVu4kBjfNuBNp8GVsgcK2lbaFdws4q6TF3Nd00LxqnHhuxS9iVDfNcUh0h6OxFUMP5DBD+g==" crossorigin="anonymous" referrerpolicy="no-referrer")
 	script(src="https://cdnjs.cloudflare.com/ajax/libs/jsoneditor/9.5.0/jsoneditor.min.js" integrity="sha512-/yeOsMWLc/SZcBuEbAGCk0OVK/NFWRiYALj7mVZtgCOV+6l8TzNjbH6iW3hSIAjvCg7NdZUNQEXT7JdL/eojpg==" crossorigin="anonymous" referrerpolicy="no-referrer")
 	script#channelData(type="text/plain")!= JSON.stringify(channel.elements)
-	script(src=homepage + "/static/webhookinfo.js")
+	script(src=resource("webhookinfo.js"))
