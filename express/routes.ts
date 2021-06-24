@@ -95,4 +95,16 @@ router.post("/saveElements", (req, res) => {
     });
 });
 
+router.post("/delete", (req, res) => {
+    // this does not check anything, and just removes the specified webhook
+    // if it doesn't exist, it does nothing
+    // this should not be a security problem: the webhook url itself is used
+    //  as a way of priviledge check
+    const channels = db.getObject<ChannelData[]>("/channels");
+    db.push("/channels", channels.filter(c => c.webhook !== req.query.webhookUrl));
+    res.json({
+        status: "success"
+    });
+});
+
 export { router as MainRouter };

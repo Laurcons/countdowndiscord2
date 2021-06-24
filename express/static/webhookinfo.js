@@ -74,6 +74,23 @@ $("#testBtn").click(function(ev) {
     });
 });
 
+$("#deleteBtn").click(function(ev) {
+    let $btn = $(this);
+    $btn.append("<span class='spinner-border spinner-border-sm ms-2'></span>");
+    $.ajax({
+        url: "delete?webhookUrl=" + webhookUrl,
+        method: "post",
+        dataType: "json"
+    }).done(function(result) {
+        alert("Webhook removed!");
+        window.location.href = "?";
+    }).fail(function(reason) {
+        alert("Error!");
+    }).always(function() {
+        $btn.children("span").remove();
+    });
+});
+
 $("#revertBtn").click(function() {
     if (confirm("Are you sure you want to revert?"))
         window.location = window.location;
