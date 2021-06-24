@@ -22,6 +22,7 @@ export function run() {
 	app.use(minify());
 	app.use(bodyParser.json());
 
+	app.locals.homepage = process.env.EXPRESS_ROOT;
 	app.locals.resource = function(url: string) {
 		// append the URL to the EXPRESS_ROOT, and add a hash
 		return process.env.EXPRESS_ROOT + "/static/" + url + `?v=${md5file.sync("./express/static/" + url)}`;
