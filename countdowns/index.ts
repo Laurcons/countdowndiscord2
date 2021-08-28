@@ -25,9 +25,9 @@ export function run() {
                 return true;
             } else {
                 const minutes = -1 * lastRun.diffNow('minutes').minutes;
-                // is the time 14:30,
+                // is the time 10:30,
                 // and has it been more than 1m 5s since last run?
-                if (now.hour == 14 && now.minute == 30 &&
+                if (now.hour == 10 && now.minute == 30 &&
                     minutes * 60 > 65
                 ) {
                     console.log("[SCHED] Performing, since it is 14:30");
