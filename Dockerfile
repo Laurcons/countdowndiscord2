@@ -25,7 +25,7 @@ COPY --from=builder /app/express/static ./express/static
 RUN mkdir -p /data
 VOLUME /data
 
-RUN touch /data/db.json
+RUN echo '{}' > /data/db.json
 RUN ln -sf /data/db.json ./db.json
 
 EXPOSE 8000
