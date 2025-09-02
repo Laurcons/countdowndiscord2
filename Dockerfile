@@ -22,9 +22,6 @@ COPY --from=builder /app/build ./build
 COPY --from=builder /app/express/views ./express/views
 COPY --from=builder /app/express/static ./express/static
 
-RUN mkdir -p /data
-VOLUME /data
-
 RUN echo '{}' > /data/db.json
 RUN ln -sf /data/db.json ./db.json
 
